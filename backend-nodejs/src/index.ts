@@ -1,21 +1,31 @@
+import bodyParser from "body-parser";
 import express from "express";
-import { Error } from "mongoose";
 
-const app = express();
-const port = 5000;
+class App {
+  public app: express.Application;
+  public port = 5000;
+  constructor(controllers: Array<any>, port: number) {
+    this.app = express();
+    this.port = port;
+    this.initializeMiddlewares();
+    this.initializeControllers(controllers);
+  }
 
-const mongoose = require("mongoose");
-mongoose
-  .connect(
-    "mongodb+srv://minhnn250695:yANNrE03Gcz0ggFI@mindb-nodejs.djpawy2.mongodb.net/?retryWrites=true&w=majority&appName=mindb-nodejs"
-  )
-  .then(() => console.log("Kết nối với MongoDB thành công!"))
-  .catch((err: Error) => console.error("Lỗi kết nối MongoDB:", err));
+  private initializeMiddlewares() {
+    // Without the body parser, the request.body property wouldn’t be accessible.
+    this.app.use(bodyParser.json());
+  }
+  private initializeControllers(controllers: Array<any>) {
+    controllers.forEach((controller) => {
+      this.app.use("/", controller.router);
+    });
+  }
 
-app.get("/", (req, res) => {
-  res.send("Hello, TypeScript with Express!");
-});
+  public listen() {
+    this.app.listen(this.port, () => {
+      console.log(`Server is running on http://localhost:${this.port}`);
+    });
+  }
+}
 
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-});
+export default App;
