@@ -1,17 +1,10 @@
 import express, { Request, Response } from "express";
 import Product from "../models/product.model";
+import { getCollectionData } from "../services/get-collection-db.service";
 
 export default class ProductController {
   public path = "/products";
   public router = express.Router();
-
-  private productItem: Product[] = [
-    {
-      name: "Binh nuoc Lock and Lock",
-      price: "100000",
-      description: "Binh nuoc 550ml, lam bang thep 316L",
-    },
-  ];
 
   constructor() {
     this.initializeRoutes();
@@ -22,13 +15,15 @@ export default class ProductController {
     this.router.post(this.path, this.postAllProducts);
   }
 
-  getAllProducts = (req: Request, res: Response) => {
-    res.send(this.productItem);
+  getAllProducts = async (req: Request, res: Response) => {
+    const productItem = await getCollectionData("products");
+    res.send(productItem);
   };
 
   postAllProducts = (req: Request, res: Response) => {
     const product: Product = req.body;
-    this.productItem.push(product);
-    res.send(this.productItem);
+    // this.productItem.push(product);
+    // res.send(this.productItem);
+    res.send();
   };
 }
