@@ -20,7 +20,7 @@ const ProductItem: React.FC<Product> = ({
   imageUrl,
 }) => {
   return (
-    <div className={styles.productItem}>
+    <div className={styles.productItem} key={id}>
       <img src={imageUrl} alt={name} className={styles.productImage} />
       <div className={styles.productDetails}>
         <h3>{name}</h3>
