@@ -1,18 +1,13 @@
 // app/products/ProductItem.tsx
 import React from "react";
 import styles from "../../styles/ProductList.module.scss";
+import { Product } from "@/models/product.model";
+import Link from "next/link";
 
-interface Product {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  currency: string;
-  imageUrl: string;
-}
 
 const ProductItem: React.FC<Product> = ({
-  id,
+  product_id,
+  _id,
   name,
   description,
   price,
@@ -20,15 +15,17 @@ const ProductItem: React.FC<Product> = ({
   imageUrl,
 }) => {
   return (
-    <div className={styles.productItem} key={id}>
-      <img src={imageUrl} alt={name} className={styles.productImage} />
-      <div className={styles.productDetails}>
-        <h3>{name}</h3>
-        <p>{description}</p>
-        <p>
-          {price.toLocaleString()} {currency}
-        </p>
-      </div>
+    <div className={styles.productItem} key={product_id}>
+      <a href={`product/${product_id}`}>
+        <img src={imageUrl} alt={name} className={styles.productImage} />
+        <div className={styles.productDetails}>
+          <h3>{name}</h3>
+          <p>{description}</p>
+          <p>
+            {price.toLocaleString()} {currency}
+          </p>
+        </div>
+      </a>
     </div>
   );
 };

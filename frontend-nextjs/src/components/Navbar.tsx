@@ -18,6 +18,7 @@ const Navbar: React.FC = () => {
           <Link href="/categories" className={styles.navLink}>Categories</Link>
           <Link href="/products" className={styles.navLink}>Products</Link>
           <Link href="/profile" className={styles.navLink}>Profile</Link>
+          <Link href="/user-address" className={styles.navLink}>Address</Link>
         </nav>
       </div>
 

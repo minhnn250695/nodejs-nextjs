@@ -1,4 +1,3 @@
-// app/products/page.tsx
 import React from "react";
 import ProductItem from "./ProductItem";
 // import styles from '@styles/ProductList.module.css';
