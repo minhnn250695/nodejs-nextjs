@@ -16,7 +16,10 @@ const ProductItem: React.FC<Product> = ({
 }) => {
   return (
     <div className={styles.productItem} key={product_id}>
-      <a href={`product/${product_id}`}>
+      <Link key={_id} href={{
+        pathname: `product/${product_id}`,
+        query: { imageUrl: imageUrl, price: price, product: name, description: description, currency: currency}
+      }}>
         <img src={imageUrl} alt={name} className={styles.productImage} />
         <div className={styles.productDetails}>
           <h3>{name}</h3>
@@ -25,7 +28,7 @@ const ProductItem: React.FC<Product> = ({
             {price.toLocaleString()} {currency}
           </p>
         </div>
-      </a>
+      </Link>
     </div>
   );
 };

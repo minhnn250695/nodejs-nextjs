@@ -1,5 +1,4 @@
 import React from "react";
-import ProductItem from "./ProductItem";
 // import styles from '@styles/ProductList.module.css';
 import styles from "../../styles/ProductList.module.scss";
 import ProductList from "./ProductList";
