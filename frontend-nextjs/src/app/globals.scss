@@ -26,6 +26,9 @@ body {
     rgb(var(--background-start-rgb));
     .container {
       margin: auto;
+      min-height: calc(100vh - 60px);
+      display: flex;
+      flex-direction: column;
     }
 }
 
