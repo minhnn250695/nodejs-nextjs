@@ -17,7 +17,6 @@ const UserAddressPage = () => {
   const handleSave = (newAddress: typeof initialAddress) => {
     // Update address in the state (or send it to an API)
     setAddress(newAddress);
-    console.log('Address saved:', newAddress);
   };
 
   return <UserAddress address={address} onSave={handleSave} />;

@@ -2,6 +2,9 @@ import React from "react";
 // import styles from '@styles/ProductList.module.css';
 import styles from "../../styles/ProductList.module.scss";
 import ProductList from "./ProductList";
+import Link from "next/link";
+import { Breadcrumbs } from "@mui/material";
+import BreadcrumbComponent from "@/components/Breadscrumb";
 
 const fetchProducts = async () => {
   const res = await fetch("http://localhost:5000/products");
@@ -16,8 +19,7 @@ const ProductsPage = async () => {
   const products = await fetchProducts();
 
   return (
-    <div>
-      <h1>Product List</h1>
+    <div>      
       <ProductList products={products} />
     </div>
   );
