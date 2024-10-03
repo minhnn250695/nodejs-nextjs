@@ -26,32 +26,23 @@ const AuthLinks: React.FC = () => (
 );
 
 const AccountInfo: React.FC<{ userName: string }> = ({ userName }) => (
-  <div className={styles.accountInfo}>
-    <img src="/assets/avatar.png" alt="User Avatar" className={styles.avatar} />
-    <span className={styles.userName}>{userName}</span>
-    <div className={styles.dropdownMenu}>
-      <Link href="/profile" className={styles.dropdownItem}>Profile</Link>
-      <Link href="/orders" className={styles.dropdownItem}>Orders</Link>
-      <Link href="/logout" className={styles.dropdownItem}>Logout</Link>
+  <div className={styles.userSettings}>
+    <span>{userName}</span>
+    <span className={styles.userSettingsIcon}>⚙️</span>
+    <div className={styles.userDropdown}>
+      <Link href="/profile" className={styles.userDropdownLink}>Profile</Link>
+      <Link href="/settings" className={styles.userDropdownLink}>Settings</Link>
+      <Link href="/logout" className={styles.userDropdownLink}>Logout</Link>
     </div>
   </div>
 );
 
-const Navbar: React.FC = () => {
-  const isLoggedIn = true; // Mock login status
-  const userName = 'John Doe'; // Mock user name
-
-  return (
-    <header className={styles.navbar}>
-      <div className={styles.navLeft}>
-        <Logo />
-        <NavLinks />
-      </div>
-      <div className={styles.navRight}>
-        {isLoggedIn ? <AccountInfo userName={userName} /> : <AuthLinks />}
-      </div>
-    </header>
-  );
-};
+const Navbar: React.FC<{ userName?: string }> = ({ userName }) => (
+  <header className={styles.navbar}>
+    <Logo />
+    <NavLinks />
+    {userName ? <AccountInfo userName={userName} /> : <AuthLinks />}
+  </header>
+);
 
 export default Navbar;

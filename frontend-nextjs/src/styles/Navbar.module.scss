@@ -1,105 +1,97 @@
-/* styles/Navbar.module.css */
+/* Navbar.module.scss */
+
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #ff4c4c;
-    color: white;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logoImage {
+  height: 40px;
+}
+
+.navLinks {
+  display: flex;
+  gap: 20px;
+}
+
+.navLink {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+
+  &:hover {
+    color: #0070f3;
   }
-  
-  .navLeft {
-    display: flex;
-    align-items: center;
+}
+
+.authLinks {
+  display: flex;
+  gap: 15px;
+}
+
+.authLink {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+
+  &:hover {
+    color: #0070f3;
   }
-  
-  .logo {
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
+}
+
+.userSettings {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.userSettingsIcon {
+  margin-left: 10px;
+  font-size: 24px;
+  color: #333;
+  transition: color 0.3s;
+
+  &:hover {
+    color: #0070f3;
   }
-  
-  .logoImage {
-    height: 40px;
+}
+
+.userDropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.userSettings:hover .userDropdown {
+  display: block;
+}
+
+.userDropdownLink {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #f0f0f0;
   }
-  
-  .navLinks {
-    display: flex;
-    gap: 20px;
-  }
-  
-  .navLink {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .navLink:hover {
-    text-decoration: underline;
-  }
-  
-  .navRight {
-    display: flex;
-    align-items: center;
-  }
-  
-  .accountInfo {
-    display: flex;
-    align-items: center;
-    position: relative;
-  }
-  
-  .avatar {
-    height: 30px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  
-  .userName {
-    font-weight: bold;
-    margin-right: 10px;
-  }
-  
-  .dropdownMenu {
-    position: absolute;
-    top: 40px;
-    right: 0;
-    background-color: white;
-    color: black;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
-    display: none;
-    flex-direction: column;
-  }
-  
-  .accountInfo:hover .dropdownMenu {
-    display: flex;
-  }
-  
-  .dropdownItem {
-    padding: 10px 20px;
-    text-decoration: none;
-    color: black;
-    white-space: nowrap;
-  }
-  
-  .dropdownItem:hover {
-    background-color: #f2f2f2;
-  }
-  
-  .authLinks {
-    display: flex;
-    gap: 15px;
-  }
-  
-  .authLink {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .authLink:hover {
-    text-decoration: underline;
-  }
-  
+}
