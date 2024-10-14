@@ -1,10 +1,10 @@
 'use client'
 import React, { FC } from 'react';
 import ProductDetail from '../ProductDetail';
-import { Product } from '@/models/product.model';
+import { ProductProps } from '@/models/product.model';
 
 interface ProductDetailProps {
-    product: Product;
+    product: ProductProps;
   }
 
 const ProductPage: FC<ProductDetailProps> = () => {
